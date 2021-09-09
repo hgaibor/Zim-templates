@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="generator" content="[% generator.name %]">
+    <meta name="Zim template" content="HGE Bootstrap responsive template" />
+    <meta name="template author" content="Hugo Gaibor E.">
+    <link rel="icon" href="[% resource('/images/favicon.ico') %]">
+
+    <title>[% title %]</title>
+
+    <!-- JS Jquery and Bootstrap scripts -->
+    <script type='text/javascript' src="[% resource('/js/jquery-3.6.0.min.js') %]" type="text/javascript"></script>
+    <script src="[% resource('/js/bootstrap.min.js') %]"></script>
+
+    <!-- Bootstrap core CSS -->
+      <link href="[% resource('/css/bootstrap.css') %]" rel="stylesheet" />
+
+    <!-- highlight module
+         Syntax highlinting libraries 
+         Taken from https://highlightjs.org/ 
+         https://github.com/highlightjs/highlight.js
+         You can change higlight code box style by choosing a different css style below, 
+         all styles were included for ease of customization
+      -->
+      <link rel="stylesheet" href="[% resource('/highlight/styles/base16/github.min.css') %]">
+      <script src="[% resource('/highlight/highlight.min.js') %]"></script>
+
+    <!-- HGE styles and JS functions for this template -->
+      <link href="[% resource('/css/hge-bootstrap_common.css') %]" rel="stylesheet">
+      <script src="[% resource('/js/hge-bootstrap_common.js') %]"></script>
+      <script src="[% resource('/js/hge-bootstrap_multi-page.js') %]"></script>
+  </head>
+
+  <body>
+    [% options.empty_lines = 'remove' %]
+    [% options.line_breaks = 'default' %]
+
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-1 justify-content upper-nav-bar">
+      <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+          <span class="text-white">
+            <img id="toggleSideMenu" class="pt-0 p-0 px-0 btn" src="[% resource('/images/menu.svg') %]" height="22" alt="Menu">
+          </span>
+        </div>
+      </div>
+      <div class="btn-toolbar" role="toolbar" aria-label="Button groups">
+        <div class="btn-group mr-2" role="group" aria-label="Navigation group">
+          [% IF navigation.prev %]
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='[% uri(navigation.prev) %]'">[% gettext("Prev") %]</button>
+            [% ELSE %]
+              <button type="button" class="btn btn-info btn-xs" disabled>[% gettext("Prev") %]</a>
+            [% END %]
+  
+            [% IF links.get("index") %]
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='[% uri(links.get("index")) %]'">[% gettext("Index") %]</button>
+            [% ELSE %]
+              <button type="button" class="btn btn-info btn-xs" disabled>[% gettext("Index") %]</a>
+            [% END %]
+
+            [% IF navigation.next %]
+              <button type="button" class="btn btn-info btn-xs" role="button" onclick="location.href='[% uri(navigation.next) %]'">[% gettext("Next") %]</button>
+            [% ELSE %]
+              <button type="button" class="btn btn-info btn-xs" disabled>[% gettext("Next") %]</a>
+            [% END %]
+        </div>
+      </div>
+      <div>
+        <div class="btn-group mr-2" role="group" aria-label="Fifth group">
+          <button class="btn btn-warning btn-xs" id="scrollUp" onclick="scrollToTop();" style="display: none;"><span style="font-weight: 500;">Scroll Up</span></button>
+        </div>
+        <div class="btn-group mr-2" role="group" aria-label="Fifth group">
+          <button class="btn btn-success btn-xs pt-0 p-0 px-0" id="printMe" >
+              <img id="printImg"  class="pt-0 p-0 px-1" style="padding:2px;" onclick="window.print();" src="[% resource('/images/printer.svg') %]" alt="Print">
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+          <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar d-print-none" id="sidebarMenuNav" style="padding-top: 40px;">
+          <div id="sidebarMenu">
+            [% index() %]
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 col-lg-10 ml-sm-auto pt-3 px-4" id="pageContents">
+            <noscript>
+              <div style="padding: 10px">
+                <span style="color:#D48D8D">
+                <p>Javascript is not enabled</p>
+                <p>Most features won't</p>
+                <p>work correctly</p>
+                <p>Please enable javascript</p></span>
+              </div>
+            </noscript>
+
+          [% FOR page IN pages %]
+            [% SET elementCount = loop.count %]
+            [% FOR section IN page.headings(5) %]
+              [% IF section.level == 1 %]
+                <h1>[% section.heading %]<a name='[% anchor(section.heading) %]_[% elementCount %]_[% loop.count %]' class="offset-anchor"></a></h1>
+              [% END %]
+              [% IF section.level == 2 %]
+                <h2>[% section.heading %]<a name='[% anchor(section.heading) %]_[% elementCount %]_[% loop.count %]' class="offset-anchor"></a></h2>
+              [% END %]
+              [% IF section.level == 3 %]
+                <h3>[% section.heading %]<a name='[% anchor(section.heading) %]_[% elementCount %]_[% loop.count %]' class="offset-anchor"></a></h3>
+              [% END %]
+              [% IF section.level == 4 %]
+                <h4>[% section.heading %]<a name='[% anchor(section.heading) %]_[% elementCount %]_[% loop.count %]' class="offset-anchor"></a></h4>
+              [% END %]
+              [% IF section.level == 5 %]
+                <h5>[% section.heading %]<a name='[% anchor(section.heading) %]_[% elementCount %]_[% loop.count %]' class="offset-anchor"></a></h5>
+              [% END %]
+              [% section.body %]
+            [% END %]
+            
+            <span class="backlinks">
+            [% FOR link IN page.backlinks %]
+                [% IF loop.first %]
+                <hr class='footnotes'>
+                <b>Backlinks:</b>
+                [% END %]<br />
+                <a href='[% uri(link) %]'>[% link.name %]</a>
+                [% IF loop.last %][% END %]
+            [% END %]
+            </span>
+
+            [% IF not loop.last %]<hr class='pageseparator'/>[% END %]
+          [% END %]
+
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

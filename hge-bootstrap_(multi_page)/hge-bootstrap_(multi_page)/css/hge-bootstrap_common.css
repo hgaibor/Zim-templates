@@ -1,0 +1,284 @@
+/* hge-bootsrap Zim template styles for single-page and multi-page variants */
+
+body {
+  font-size: .875rem;
+}
+
+/* Fix to set offset on anchor elements so they are not hidden by top nav */
+  h1 a {
+    display: block;
+    position: relative;
+    top: -85px;
+    visibility: hidden;
+  }
+
+  .offset-anchor {
+    display: block;
+    position: relative;
+    top: -85px;
+    visibility: hidden;
+  }
+
+/* General color layout for Bootstrap layout */
+  h1, .h1 {
+    /*color: #2f5496;*/
+    /*color: #142441;*/ /* Original HGE mod*/
+    color: #223c6b;
+  }
+
+  h2, .h2 {
+    /*color: #3c6cc0;*/
+    /*color: #223c6b;*/ /* Original HGE mod*/
+    color: #2f5496;
+  }
+
+  h3, .h3 {
+    /*color: #4a84eb;*/
+    /*color: #2f5496;*/ /* Original HGE mod*/
+    color: #3c6cc0;
+  }
+
+  h4, .h4 {
+    /*color: #142441;*/
+    /*color: #3c6cc0;*/ /* Original HGE mod*/
+    color: #4a84eb;
+  }
+
+  h5, .h5 {
+    /*color: #223c6b;*/
+    /*color: #4a84eb;*/ /* Original HGE mod*/
+    color: #1550ba;
+  }
+
+  h6, .h6 {
+    /*color: #070d16;*/
+    /*color: #5e86cd;*/ /* Original HGE mod*/
+    color: #626262;
+  }
+
+  a {
+    color: #4a84eb;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+  }
+
+/* Various missing elements*/
+  .btn-group-xs > .btn, .btn-xs {
+    padding: .25rem .4rem .4rem .25rem;
+    font-size: .77rem;
+    line-height: .5;
+    border-radius: .2rem;
+  }
+
+  .upper-nav-bar{
+    font-size: .77rem;
+  }
+
+/* Multi-page variant styles */
+.zim-index-toc-link:hover{
+  color: #4a84eb;
+  text-decoration: none;
+  -webkit-text-decoration-skip: objects;
+}
+
+/* Sidebar style variants */
+
+/* Tocbot style corrections */
+  .list-style{
+    text-align: left;
+    padding: 3px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    /*margin-top: 2px;*/
+    /*margin-bottom: 2px;*/
+    border: none;
+    color: #142541;
+    /*color: red;*/
+  }
+
+  .list-style-active{
+    text-align: left;
+    padding: 3px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    /*margin-top: 2px;*/
+    /*margin-bottom: 2px;*/
+    /*border: none;*/
+    font-weight: 500;
+    /*color: #4a84eb;*/
+    color: #2f5496 !important;
+  }
+
+  .toc-link::before{
+    background-color: transparent;
+    background-color: #626262;
+    width: 1px;
+  }
+  .toc-link{
+    /*color: #142541 !important;*/
+  }
+
+  .toc-list{
+    padding-left: 3px;
+    margin-left: 3px;
+    /*color: #142541 !important;*/
+  }
+
+  .show-level-icon
+  {
+    padding-top: 5px;
+  }
+
+/* Sidebar for printing media */
+  @media print {
+    .sidebar {
+      box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    }
+
+    .sidebar-sticky {
+      /*overflow-x: hidden;*/
+      /*overflow-y: auto;*/ /* Scrollable contents if viewport is shorter than content. */
+    }
+
+    @page {
+      size: a4;
+    }
+
+    h1 {
+      /*page-break-before: always; */
+      /*page-break-after: avoid;*/
+    }
+
+    .pageseparator{
+      page-break-before: always; 
+      page-break-after: avoid;
+    }
+  } 
+
+/* Sidebar for small screens */
+  @media (min-width: 576px) {
+    .sidebar {
+      /*position: fixed;*/
+      /*top: 0;*/
+      /*bottom: 0;*/
+      /*left: 0;*/
+      /*z-index: 100;*/ /* Behind the navbar */
+      /*padding: 0;*/
+      box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+      /* Moved from sidebar-sticky as it was causing scrolling glitch with tocbot */
+      overflow-x: hidden;
+      overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    }
+
+    .sidebar-sticky {
+      /*position: -webkit-sticky;*/
+      /*position: sticky;*/
+      /*top: 30px;*/ /* Height of navbar */
+      /*height: calc(100vh - 30px);*/
+      /*padding-top: .5rem;*/
+    }
+  }
+
+/* Sidebar for larger screens */
+  @media (min-width: 768px) {
+    .sidebar {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100; /* Behind the navbar */
+      padding: 1px;
+      box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+      background-color: #fff !important; 
+      /* Moved from sidebar-sticky as it was causing scrolling glitch with tocbot */
+      overflow-x: hidden; 
+      overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    }
+
+    .sidebar-sticky {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 30px; /* Height of navbar */
+      /*height: calc(100vh);*/
+      height: calc(100vh - 30px);
+      padding-top: .5rem;
+    }
+
+  }
+
+/* Other sidebar elements */
+  .sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+  }
+
+  .sidebar .nav-link .feather {
+    margin-right: 4px;
+    color: #999;
+  }
+
+  .sidebar .nav-link.active {
+    color: #007bff;
+  }
+
+  .sidebar .nav-link:hover .feather,
+  .sidebar .nav-link.active .feather {
+    color: inherit;
+  }
+
+  .sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+  }
+
+/* Navbar */
+  .navbar-brand {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, .25);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+  }
+
+  .navbar .form-control {
+    padding: .75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+  }
+
+  .form-control-dark {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+  }
+
+  .form-control-dark:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+  }
+
+/* Utilities */
+  .border-top { border-top: 1px solid #e5e5e5; }
+  .border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+/* CUSTOM CHECKMARKS STYLES
+ * Taken from 
+ * https://github.com/ecodiv/ZIM-templates/tree/master/AltDefault
+ */
+ .checked-box {
+     list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJXSURBVDiNrZRPSJRBGMZ/3+7maqlElkKSXjK8CFl0CFRMqIQyhAiikE4igSJktyKCSJQ8ZEWXtvAzbSkEKdygCAUlo9gIMjfMlkRZNP+AIpjtbvt02D982G5dek/zzrzzm2fmmRn4T2Gk6N8CHAX2ArnAMuADngOLiapuWhA2znHDtgGQBlwCxoFjwBTgiUFKgbfAHb/ff6ZtrM2H6ABOblSxDRgGbgFbUyhNq62t7RgKDEWcPU5lP8pW+1h7nbVgEzAInE8BAECSY2JlYjz3ca7s3XYNzAxIUoW1phm4+zcIwNTqVGPJsxJhok5fp7xe77SkxDk7gK9Azt8gozOjGTWDNWuYqH60XpKWCwoKPgMF8ZpKwP0vNa5JV2tmb6YqX1Qq+CsoSVeIGtNk3VZzPJFULumlpNuSdgGUecr25D3JCxf1F2lxfVGSliRlAVWAC8AGbAeWuE8WJs0L6wu9wGGgEZic/zHvnvs59z4cCds9VR5ynDkANw3DWAUWiN4zAC4ATZgcx0TF/cXB2bVZSVIoElL1q2ql96Rr5PuIYjEtaXNs7iHgQRx0BOjiKja6cGGiwr7CoG/Zp4Y3DTJMQ+5v7jhkRdJBy9FdBFriSRrgB7IQBt1cwyRkf2gPYaLWj60RSWFJw5IOWCAG4AV2W025DLQlsi4qMAlgck+SQ1J6EiPPksTtDOAdcCrR00M2Svmo9wFfgPxkg/nAh5g6ZwqAAdTFIPutAw5LOwCUA9eBT0Af8BqYI3rrS4HTwARRtwIbV0gWO4ETsVV3EP2PxoGnMTV/xG9aEg1HbAVltwAAAABJRU5ErkJggg==);
+ }
+ .unchecked-box {
+     list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFJSURBVDiNrdM/S1tRGMfxT4JkqShIoBQCUhyLOEYREbpUKA4FtxQ6+QIEMyi+AV+ASzNkEQSHIqUUqaWDk6UdpIIN1qGSwUELLXQNx+HeC7fXXEwv/pZzzvNwvs+f8xzuSaUc+wgWMI2H+INzvI3XWypnzkNYxzHmcYTXeI8KdvGm3W4vhBDm8rIbwUdsYTSvgmazudHr9UKs5X6ZvcNqXpREIYRGQul2u62s/xV27oLEoEoIYbPT6ezXarXDrP87xgcBZXSAWaKSJnGJiwKgbbxIgz4XgMCX+L4yxvC7IOga1QT0K4YVURVXCegE9YKgOr6lDad4XAD0CTNpw0vR+P+PFvEhayxjD2sDQp7gByb6OYexj5b85pfQiCH/lDSU2v/Fc6zgq+gDH4qGdRhTWBL18ym62Qj99ADPRK/ySDRnZ6KP/bPfhRtBYFoovTcvkgAAAABJRU5ErkJggg==);
+ }
+ .xchecked-box {
+     list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJHSURBVDiNrdRNaJxVGAXgZ9KZJk2iIWpGCQFxIXQRtLpyk+BCRYsgiIWCUnVhd+pCRSQ00BIJtGSlUF20uogYEIoVqiJUsPUHWkrAxBQEf1qkoFFUDGO0yRwXM1O+fo4739177+Gc8/7cy/8Ulf84H8D9uB034les4H38DKGGl/BnhUM9JYJe7MMy7sM3eBdLuA1fTE5OvrW+uPiR7dsvYT8eLru4Hp9iDtd2s7m2trancexYozk8nJCMjy+F4SJmKz7BU2FPmEqh7CRbk7ySw4cbqdWSWi3rs7ObK8vLu8tiz+PVdu0fhITXQiXJUJLjmZpaD8nQUDMnTvw0MzPzOo6U3XzXLk2oh6WQDA7OZ2PjsyskY2ObOXPmbJJbsAVf4eYO0T14u8gc6qlWV0KyY8dGSEZHN3Pu3HtJthWg+/BMJ3kOz15FlPTlwoWPMzLSDEl/fzOnTx9NsqXUkntxFHpwA34pAQ46efIuq6sV1SqNRsXERFQqKeFWMdJJXsDTBTcP5NSpP9LbmwwMNLOw8OGVnnEkLfFiW97oJDvxZptkMBcvfpt6vZmenmR+/nySvvYAvuxC9qLWxEEfvsc1SZ7Mrl1/h2R6ei3J+FUDYLmzGlp7tohbi7VOYzbJg5mba2Tv3r9y+fKBUj+Kq/F7H09goYzZhrN4JMnOJI8mqZZBbbL+x1oP+muMdsOMta1OaS1pt6jg8TbJHcWLouoPmMDLWq//HXyOH3Ed7sRunMfduFRW6BY34aG2ah2/tcmPa30t/4p/AJMpGJE30HTAAAAAAElFTkSuQmCC);
+ }
+ .migrated-box {
+     list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIDSURBVDiNrdTLb4xhFAbw34wyVMhoRbTYTEqjCDYuC0pCIojYSPwHNi5hy8JCYimxaKKxYCURkSYuCyE1TaMRl8alQiKxYdq6dGrRRoMei/kqozMjFp7kzfd953ve5z1Pzjkv/wmpGvFm7EMbFuITnuFG8l6B9LTvRnTiHpbiLi7gPlrxAOcw72/ZteIVjqCuBieDk+jHsmqExkRk+/Qf0as1enREt11l4f14grnT+ReSTCoQeZciL5J1J7qti4jFXV1dvYVCYTgiVkxxm/G6lp3I2xp5hTKxn9GbvRiTE5MREcVi8Tilqh1K/J6C6NEutP6pJiNlm7BbymxQv2rc6lv17wYnH+ZyuU11WIM7ichB4UpFWqlpTxgfqNe/wZLc5fURMaMODSgmJ2+uZq8q6rITvn/MzBo6O8v85qY0viRicBHD/yT0YzSj+Yjisqujqfq179N4jo2QavfCpKXSGn6v2RZKOyYMlcmMWd75Qct5wx+Lz6aCTXiDmdUOjh4dZRWLyLsbA3u2RMRU1Y5SGpFBpZE4XNVCJE0XBrAn1W6HtpvfRkZGvkI2m71XTl+Al9hZoXNbJnpsiKtmlIUP4FFfX9/KiKgY/JZE7EQtm5iD03is1Mi/Ud7Nb7EFZzCA63iEUaVZ3Kx0tVxDO8bKhWrdR4uwV6lZG/EZT3EbI9U2/AIWn8JH54j+ewAAAABJRU5ErkJggg==);
+ }
+
+.imgcenter {
+    text-align: center;
+}
