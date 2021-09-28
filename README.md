@@ -1,4 +1,4 @@
-# HG-bootstrap responsive Zim Wiki template
+# HGE-bootstrap responsive Zim Wiki template
 I've been an enthusiast user of Zim Wiki for a while now, as I loved the simplicity of how it handled the data on the different entries that were created. It also is Cloud-search friendly since I use it along web storage. 
 
 However despite all the awesome features I did not find a responsive template to I decided to give it a shot and make one based on what I needed when exporting my Wikis. 
